@@ -2,7 +2,7 @@
 
 var LayoutQueue = require('layout-queue');
 
-var AlignToSides = (function () {
+var AlignmnetClass = (function () {
 
 	function align(selector, tolerance, reverse = false, condition = function(){return true} ) {
         document.querySelectorAll(selector).forEach(function(parent) {
@@ -11,7 +11,7 @@ var AlignToSides = (function () {
             
             if ( condition() ) {
 	            children.forEach(function(child){
-	            	setAlingmentStyle(child, parentRect, tolerance, reverse);
+	            	setAlingmentClass(child, parentRect, tolerance, reverse);
 	            });            	
             } else {
             	release(selector);
@@ -20,26 +20,38 @@ var AlignToSides = (function () {
         });    		
 	}
 
-	function setAlingmentStyle(child, parentRect, tolerance, reverse) {
+	function setAlingmentClass(child, parentRect, tolerance, reverse) {
     	var childRect = child.getBoundingClientRect();
     	var diffLeft = childRect.left - parentRect.left;
     	var diffRight = parentRect.right - childRect.right;
 
     	if (!reverse) {
 			if (tolerance && diffLeft >= tolerance && diffRight >= tolerance) {
-				child.style.textAlign = "center";
+                child.classList.remove('alignment-left');
+                child.classList.remove('alignment-right');
+                child.classList.add('alignment-center');
 			} else if ( diffRight >= diffLeft ) {
-				child.style.textAlign = "left";
+                child.classList.remove('alignment-center');
+                child.classList.remove('alignment-right');
+                child.classList.add('alignment-left');
 			} else {
-				child.style.textAlign = "right";
+                child.classList.remove('alignment-center');
+                child.classList.remove('alignment-left');
+                child.classList.add('alignment-right');
 			}            		
     	} else { 
 			if (tolerance && diffLeft >= tolerance && diffRight >= tolerance) {
-				child.style.textAlign = "center";
+                child.classList.remove('alignment-left');
+                child.classList.remove('alignment-right');
+                child.classList.add('alignment-center');
 			} else if ( diffRight >= diffLeft ) {
-				child.style.textAlign = "right";
+                child.classList.remove('alignment-center');
+                child.classList.remove('alignment-left');
+                child.classList.add('alignment-right');
 			} else {
-				child.style.textAlign = "left";
+                child.classList.remove('alignment-center');
+                child.classList.remove('alignment-right');
+                child.classList.add('alignment-left');
 			}                     		
     	}
 	}
@@ -48,7 +60,9 @@ var AlignToSides = (function () {
         document.querySelectorAll(selector).forEach(function(parent) {
             var children = Array.from(parent.children);
             children.forEach(function(child){
-				child.style.textAlign = "inherit";
+                child.classList.remove('alignment-center');
+                child.classList.remove('alignment-right');
+                child.classList.remove('alignment-left');
             });
         });    		
 	}
@@ -71,4 +85,4 @@ var AlignToSides = (function () {
 
 })();
 
-module.exports = AlignToSides;
+module.exports = AlignmnetClass;

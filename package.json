@@ -12,16 +12,16 @@
   "scripts": {
     "test": "mocha"
   },
-  "name": "align-to-sides",
-  "description": "This library can be used to dynamically set text alignment for a set of elements based on their position relative to their parent element(s).",
-  "version": "1.1.2",
-  "main": "AlignToSides.js",
+  "name": "alignment-class",
+  "description": "This library can be used to dynamically assign an alignment class for a set of elements based on their position relative to their parent element(s).",
+  "version": "0.0.1",
+  "main": "AlignmentClass.js",
   "directories": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davejtoews/align-to-sides.git"
+    "url": "git+https://github.com/davejtoews/alignment-class.git"
   },
   "keywords": [
     "layout",
@@ -31,12 +31,14 @@
     "text",
     "align",
     "sides",
-    "parent"
+    "parent",
+    "class",
+    "center"
   ],
   "author": "Dave Toews (http://davejtoews.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davejtoews/align-to-sides/issues"
+    "url": "https://github.com/davejtoews/alignment-class/issues"
   },
-  "homepage": "https://github.com/davejtoews/align-to-sides#readme"
+  "homepage": "https://github.com/davejtoews/alignment-class#readme"
 }

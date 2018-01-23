@@ -1,8 +1,8 @@
 require('jsdom-global')();
 var assert = require('chai').assert;
-var AlignToSides = require('../AlignToSides.js');
+var AlignmentClass = require('../AlignmentClass.js');
 
-describe('AlignToSides', function() {
+describe('AlignmentClass', function() {
 	document.body.innerHTML = '<ul><li>one</li><li>two</li><li>three</li></ul>';
 	
 	var parent = document.querySelector('ul');
@@ -17,53 +17,53 @@ describe('AlignToSides', function() {
 		}
 	}
 
-	it('should set alignment', function() {
+	it('should set alignment class', function() {
 		setBoundingClientRect(parent, 0, 100);
 		setBoundingClientRect(children[0], 10, 20);
 		setBoundingClientRect(children[1], 45, 55);
 		setBoundingClientRect(children[2], 80, 90);
 
-		AlignToSides.set('ul');
+		AlignmentClass.set('ul');
 
-		assert.equal(document.body.innerHTML, '<ul><li style="text-align: left;">one</li><li style="text-align: left;">two</li><li style="text-align: right;">three</li></ul>');		
+		assert.equal(document.body.innerHTML, '<ul><li class="alignment-left">one</li><li class="alignment-left">two</li><li class="alignment-right">three</li></ul>');		
 	});
 	it('should unset alignment', function() {
-		AlignToSides.unset('ul');
-		assert.equal(document.body.innerHTML, '<ul><li style="text-align: inherit;">one</li><li style="text-align: inherit;">two</li><li style="text-align: inherit;">three</li></ul>');		
+		AlignmentClass.unset('ul');
+		assert.equal(document.body.innerHTML, '<ul><li class="">one</li><li class="">two</li><li class="">three</li></ul>');		
 	});
-	it('should set alignment with respect to tolerance', function() {
+	it('should set alignment class with respect to tolerance', function() {
 
-		AlignToSides.set('ul', 20);
-		assert.equal(document.body.innerHTML, '<ul><li style="text-align: left;">one</li><li style="text-align: center;">two</li><li style="text-align: right;">three</li></ul>');		
+		AlignmentClass.set('ul', 20);
+		assert.equal(document.body.innerHTML, '<ul><li class="alignment-left">one</li><li class="alignment-center">two</li><li class="alignment-right">three</li></ul>');		
 	});
-	it('should set alignment on resize', function() {
+	it('should set alignment class on resize', function() {
 		setBoundingClientRect(parent, 100, 200);
 		setBoundingClientRect(children[0], 140, 150);
 		setBoundingClientRect(children[1], 180, 190);
 		setBoundingClientRect(children[2], 110, 120);
 
-		AlignToSides.init('ul', 30);
+		AlignmentClass.init('ul', 30);
 		window.dispatchEvent(new Event('resize'));
 
-		assert.equal(document.body.innerHTML, '<ul><li style="text-align: center;">one</li><li style="text-align: right;">two</li><li style="text-align: left;">three</li></ul>');		
+		assert.equal(document.body.innerHTML, '<ul><li class="alignment-center">one</li><li class="alignment-right">two</li><li class="alignment-left">three</li></ul>');		
 	});
-	it('should set alignment in reverse', function() {
+	it('should set alignment class in reverse', function() {
 		setBoundingClientRect(parent, 0, 100);
 		setBoundingClientRect(children[0], 10, 20);
 		setBoundingClientRect(children[1], 45, 55);
 		setBoundingClientRect(children[2], 80, 90);
 
-		AlignToSides.set('ul', null, true);
+		AlignmentClass.set('ul', null, true);
 
-		assert.equal(document.body.innerHTML, '<ul><li style="text-align: right;">one</li><li style="text-align: right;">two</li><li style="text-align: left;">three</li></ul>');		
+		assert.equal(document.body.innerHTML, '<ul><li class="alignment-right">one</li><li class="alignment-right">two</li><li class="alignment-left">three</li></ul>');		
 	});
 	it('should take conditions', function() {
 		var condition = function() {
 			return false;
 		}
-		AlignToSides.unset('ul');
-		AlignToSides.set('ul', null, null, condition);
-		assert.equal(document.body.innerHTML, '<ul><li style="text-align: inherit;">one</li><li style="text-align: inherit;">two</li><li style="text-align: inherit;">three</li></ul>');
+		AlignmentClass.unset('ul');
+		AlignmentClass.set('ul', null, null, condition);
+		assert.equal(document.body.innerHTML, '<ul><li class="">one</li><li class="">two</li><li class="">three</li></ul>');
 	});
 
 });
