@@ -1,4 +1,4 @@
-# Align To Sides
+# Alignment Class
 
 This library can be used to dynamically ensure all child elements of a given CSS selector are assinged a class according to their position relative to their parent. On page-load the elements' positions are measured, elements nearest the left edge of thier parent get the class "alignment-left", elements nearest the right edge of their parent get the class "alingment-right", and if a tolerance value is provided elements further than the tolerance value from either edge get the class "alignment-center". On a window resize (or orientation change on mobile) the positions are measured again and the classes reset to accomodate any shift in layout caused by the change in window size.
 
