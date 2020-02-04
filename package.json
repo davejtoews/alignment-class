@@ -7,15 +7,18 @@
     "jsdom": "^9.10.0",
     "jsdom-global": "^2.1.1",
     "mocha": "^3.2.0",
-    "mocha-jsdom": "^1.1.0"
+    "mocha-jsdom": "^1.1.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "webpack"
   },
   "name": "alignment-class",
   "description": "This library can be used to dynamically assign an alignment class for a set of elements based on their position relative to their parent element(s).",
-  "version": "1.0.0",
-  "main": "AlignmentClass.js",
+  "version": "1.0.1",
+  "main": "dist/main.js",
   "directories": {
     "test": "test"
   },
