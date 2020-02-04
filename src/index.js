@@ -2,7 +2,7 @@
 
 var LayoutQueue = require('layout-queue');
 
-var AlignmnetClass = (function () {
+var AlignmentClass = (function () {
 
 	function align(selector, tolerance, reverse = false, condition = function(){return true} ) {
         document.querySelectorAll(selector).forEach(function(parent) {
@@ -85,4 +85,4 @@ var AlignmnetClass = (function () {
 
 })();
 
-module.exports = AlignmnetClass;
+module.exports = AlignmentClass;
