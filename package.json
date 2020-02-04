@@ -4,6 +4,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-parameters": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "babel-loader": "^8.0.6",
@@ -21,7 +22,7 @@
   },
   "name": "alignment-class",
   "description": "This library can be used to dynamically assign an alignment class for a set of elements based on their position relative to their parent element(s).",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/main.js",
   "directories": {
     "test": "test"

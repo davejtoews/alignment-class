@@ -1,6 +1,6 @@
 require('jsdom-global')();
 var assert = require('chai').assert;
-var AlignmentClass = require('../src/index.js');
+var AlignmentClass = require('../dist/main.js');
 
 describe('AlignmentClass', function() {
 	document.body.innerHTML = '<ul><li>one</li><li>two</li><li>three</li></ul>';
