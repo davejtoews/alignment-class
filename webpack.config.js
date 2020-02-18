@@ -18,5 +18,8 @@ module.exports = {
                 }
             }
         ]
+    },
+    externals: {
+        'layout-queue': 'layout-queue',
     }
 };
